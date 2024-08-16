@@ -1,16 +1,19 @@
 /* reset */
 *, *::before, *::after {
     box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
 }
 
 * {
     margin: 0;
+    color: #7c838a;
 }
 
 body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    background-color: #F9ED32;
+    background: linear-gradient(157deg, rgba(249,237,50,1) 0%, rgba(217,189,50,1) 100%);
     height: 100vh;
     width: 100vw;
     /* overflow: hidden; */
@@ -38,6 +41,9 @@ p, h1, h2, h3, h4, h5, h6 {
     background-color: #fcfeff;
     border-radius: 1.5rem;
     overflow: hidden;
+    box-shadow: 4px 4px 5px 2px rgba(0,0,0,0.24);
+    display: flex;
+   
 }
 
 .img-container{
@@ -45,8 +51,129 @@ p, h1, h2, h3, h4, h5, h6 {
     height: 100%;
 }
 
-img {
+.img-container img {
     position: relative;
     top: -2rem;
     width: 100%;
+    filter: contrast(125%)
+}
+
+h3 {
+    color: #000;
+    
+}
+
+.form-container {
+    width: 55%;
+    height: 100%;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 0 0.5rem;
+  
+}
+
+form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin: 3rem 0; */
+}
+
+.personal-information {
+    width: 90%;
+}
+
+label p {
+    font-family: 500;
+    color: #7C838A;
+    font-size: 0.9rem;
+}
+
+input {
+    padding: 0 1rem;
+    width: 100%;
+    height: 2rem;
+    margin: 0 auto 1rem;
+    border-radius: 0.6rem;
+    border: none;
+    background-color: #B0BAC3;
+    color: #000;
+    font-size: 0.8rem;
+    
+}
+
+button[type="submit"] {
+    /* background-color: #F9ed32; */
+    /* color: #000; */
+    background-color: #dbdbdb;
+    color: #636363;
+    border: none;
+    height: 3rem;
+    width: 16rem;
+    border-radius: 0.8rem;
+    margin: 0.5rem 0 0.2rem;
+    
+    font-weight: 700;
+    font-size: 1.2rem;
+    cursor: not-allowed;
+
+}
+
+form > p{
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+form p > a {
+    text-decoration: none;
+    color: #ccbf04;
+}
+
+
+h2 {
+    font-weight: 500;
+    font-size: 1.2rem;
+  
+}
+
+.sign-up-with {
+    display: flex;
+    width: 70%;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.sign-up-with-btn {
+    width: 10.5rem;
+    height: 2rem;
+    border-radius: 0.6rem;
+    border: 1px solid #7c838a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.sign-up-with img {
+    height: 1.8rem;
+    width: 1.8rem;
+    margin-right: 0.4rem;
+
+}
+
+.sign-up-with p {
+    font-size: 0.75rem;
+    font-weight: 500;
+   
+ 
+}
+
+.copyright {
+    font-size: 0.9rem;
+
+    
 }

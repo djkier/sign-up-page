@@ -27,3 +27,7 @@ This project is a basic signup form created using HTML, CSS and JavaScript. The 
 -   **HTML:** Used to create the structure of the signup form.
 -   **CSS:** Applied for styling the form elements.
 -  **JavaScript:** Used for customize message for valid and invalid entries.
+
+## Acknowledgement
+-   **Leo Barreto:** The design is inspired from his layout created in [Figma](https://www.figma.com).  For the original design visit this [Website](https://www.figma.com/community/file/1026170425902325131/loginuiconcept)
+-   **Figma:** Revision of design has been done with [figma](https://www.figma.com).
