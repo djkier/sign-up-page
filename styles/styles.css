@@ -1,4 +1,10 @@
 /* reset */
+:root {
+    --red-error: rgb(252, 54, 54);
+    --green: rgb(13, 238, 81);
+    --base-gray: #7C838A;
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
@@ -8,6 +14,10 @@
 * {
     margin: 0;
     color: #7c838a;
+}
+
+a {
+    text-decoration: none;
 }
 
 body {
@@ -86,11 +96,29 @@ form {
     width: 90%;
 }
 
+.para {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 0.4rem;
+}
+
 label p {
     font-family: 500;
     color: #7C838A;
     font-size: 0.9rem;
 }
+
+.error-msg {
+    font-size: 0.7rem;
+    align-self: flex-end;
+    color: var(--red-error);
+}
+
+dialog{
+    width: 50%;
+    border: none;
+}
+
 
 input {
     padding: 0 1rem;
@@ -99,17 +127,30 @@ input {
     margin: 0 auto 1rem;
     border-radius: 0.6rem;
     border: none;
-    background-color: #B0BAC3;
+    background-color: #d4d4d4;
     color: #000;
     font-size: 0.8rem;
-    
 }
 
+input:focus {
+   outline: none;
+   background-color: rgb(245, 245, 245);
+}
+
+input::placeholder {
+    color: #999999;
+}
+
+.req {
+    color: rgb(252, 54, 54);
+}
+
+
+
 button[type="submit"] {
-    /* background-color: #F9ed32; */
-    /* color: #000; */
-    background-color: #dbdbdb;
-    color: #636363;
+    background-color: #F9ed32;
+    color: #000; 
+    
     border: none;
     height: 3rem;
     width: 16rem;
@@ -118,8 +159,14 @@ button[type="submit"] {
     
     font-weight: 700;
     font-size: 1.2rem;
-    cursor: not-allowed;
+    cursor: pointer
 
+}
+
+button[type="submit"]:disabled {
+    background-color: #dbdbdb;
+    color: #636363;
+    cursor: not-allowed;
 }
 
 form > p{
@@ -128,8 +175,14 @@ form > p{
 }
 
 form p > a {
-    text-decoration: none;
+    
     color: #ccbf04;
+    font-weight: 600;
+
+}
+
+form p > a:hover {
+    font-weight: 900;
 }
 
 
@@ -159,8 +212,8 @@ h2 {
 }
 
 .sign-up-with img {
-    height: 1.8rem;
-    width: 1.8rem;
+    height: 1.5rem;
+    width: 1.5rem;
     margin-right: 0.4rem;
 
 }
@@ -175,5 +228,4 @@ h2 {
 .copyright {
     font-size: 0.9rem;
 
-    
 }

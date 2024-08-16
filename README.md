@@ -11,7 +11,6 @@ This project is a basic signup form created using HTML, CSS and JavaScript. The 
     -   Name
     -   Email
     -   Password
-    -   Age
     - Birthday
 -   **Form Validation:**
     
