@@ -3,7 +3,7 @@ const shadow = document.querySelector('.sign-up-container');
 const body = document.querySelector('body');
 
 shadow.addEventListener('mousemove', (e) => {
-    let xShadow, yShadow, xNoDeci, yNoDeci;
+    let xShadow, yShadow;
     let x = e.clientX;
     let y = e.clientY;
 
