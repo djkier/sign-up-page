@@ -1,11 +1,12 @@
 const input = document.querySelectorAll('input');
 const submitBtn = document.querySelector('button[type="submit"]');
+const now = new Date();
+const year =now.getFullYear();
 
-
-const state = {fullName: false, email: false, birthdate: false, password: false};
+const statusBtn = {fullName: false, email: false, birthdate: false, password: false};
 
 function enableSubmit() {
-    if (state.fullName && state.email && state.birthdate && state.password) {
+    if (statusBtn.fullName && statusBtn.email && statusBtn.birthdate && statusBtn.password) {
         submitBtn.disabled = false;
     } else {
         submitBtn.disabled = true;
@@ -20,7 +21,7 @@ function changeDesign(msg, border, input, error) {
 const fullNameRes = (state, input, error) => {
     let msg, border;
     if (!state) {
-        msg = 'must not contain numerical numbers';
+        msg = 'must not contain numbers';
         border = '2px solid var(--red-error, red)'; 
     } else {
         msg = '';
@@ -34,6 +35,7 @@ const fullNameRes = (state, input, error) => {
         input.style.backgroundColor = '#d4d4d4';
     }
     changeDesign(msg, border, input, error);
+    statusBtn.fullName = state;
 }
 
 const emailRes = (state, input, error) => {
@@ -53,9 +55,36 @@ const emailRes = (state, input, error) => {
         input.style.backgroundColor = '#d4d4d4';
     }
     changeDesign(msg, border, input, error);
+    statusBtn.email = state;
 }
 
-const birthdateRes = (state) => {
+const birthdateRes = (state, input, error) => {
+    const yearBirth = input.value.split('-')[0];
+    const age = year - yearBirth;
+
+    let msg = '';
+    let border = '2px solid var(--green, green)';
+
+    if (age < 12 || age > 80) {
+        state = false;
+        msg = 'Age must be 12-80 years old';
+        border = '2px solid var(--red-error, red)';
+    } 
+    
+    if (age < 0) {
+        msg = 'Future Person? ' + msg; 
+    } 
+    console.log(input.value === '');
+    if (input.value === '') {
+        msg = '';
+        border = 'none';
+        input.style.backgroundColor = '#d4d4d4';
+    }
+
+    changeDesign(msg, border, input, error);
+    statusBtn.birthdate = state;
+    
+
 
 }
 
@@ -65,8 +94,6 @@ const passwordRes = (state) => {
 
 input.forEach(inp => {
     inp.addEventListener('input', () => {
-        console.log(inp.checkValidity());
-        // console.log(inp.value)
         const validity = inp.checkValidity();
         const errorSelector = document.querySelector(`label[for='${inp.id}'] p.error-msg`);
 
