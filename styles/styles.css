@@ -108,6 +108,19 @@ label p {
     font-size: 0.9rem;
 }
 
+.para > div {
+    display: flex;
+}
+
+.para img {
+    width: 1.1rem;
+    height: 1.1rem;
+    align-self: center;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    visibility: hidden;
+}
+
 .error-msg {
     font-size: 0.7rem;
     align-self: flex-end;

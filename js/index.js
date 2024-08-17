@@ -3,6 +3,7 @@ const submitBtn = document.querySelector('button[type="submit"]');
 const spanCaps = document.createElement('span');
 const spanNumb = document.createElement('span');
 const spanSpCh = document.createElement('span');
+const showPass = document.querySelector('.para img');
 
 const now = new Date();
 const year =now.getFullYear();
@@ -140,7 +141,6 @@ const passwordRes = (state, input, error) => {
         testForSpCh ? spanColor(spanSpCh, green) : spanColor(spanSpCh, red);
     }
 
-    console.log(input.value);
     statusBtn.password = state;
 }
 
@@ -159,13 +159,30 @@ input.forEach(inp => {
         else if (inp.id === 'birthdate') {
             birthdateRes(validity, inp, errorSelector);
         } 
-        else if (inp.id === 'password') {
+        else if (inp.id === 'password') {  
             passwordRes(validity, inp, errorSelector);
+            showPass.style.visibility = inp.value.length > 0 ? 'visible' : 'hidden'; 
+            
         }
 
         enableSubmit();
     })
 })
+let show = false;
+
+showPass.addEventListener('click', () => {
+    if (show) {
+        document.querySelector('#password').type = 'text';
+        showPass.src = './src/show.png'
+    } else {
+        document.querySelector('#password').type = 'password';
+        showPass.src = './src/unshow.png'
+    }
+
+    show = !show;
+})
+
+
 
 
 
