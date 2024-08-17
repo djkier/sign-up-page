@@ -1,5 +1,9 @@
 const input = document.querySelectorAll('input');
 const submitBtn = document.querySelector('button[type="submit"]');
+const spanCaps = document.createElement('span');
+const spanNumb = document.createElement('span');
+const spanSpCh = document.createElement('span');
+
 const now = new Date();
 const year =now.getFullYear();
 
@@ -11,6 +15,10 @@ function enableSubmit() {
     } else {
         submitBtn.disabled = true;
     }
+}
+
+function spanColor(trgt, clr) {
+    trgt.style.color = clr;
 }
 
 function changeDesign(msg, border, input, error) {
@@ -74,7 +82,9 @@ const birthdateRes = (state, input, error) => {
     if (age < 0) {
         msg = 'Future Person? ' + msg; 
     } 
-    console.log(input.value === '');
+    input.style.backgroundColor = 'rgb(245, 245, 245)';
+
+
     if (input.value === '') {
         msg = '';
         border = 'none';
@@ -88,9 +98,52 @@ const birthdateRes = (state, input, error) => {
 
 }
 
-const passwordRes = (state) => {
+const passwordRes = (state, input, error) => {
+    const testForCapital = /[A-Z]+/.test(input.value);
+    const testForNumber = /\d+/.test(input.value);
+    const testForSpCh = /[!@#$%^&*(),.?":{}|<>]/.test(input.value);
 
+    let msg = ''
+    let border = '2px solid var(--red-error, red)'; 
+    state = false;
+
+    if (input.value.length < 8){
+        msg = 'Must contain atleast 8 characters'
+    } 
+
+    if (testForCapital && testForNumber && testForSpCh && input.value.length >= 8){
+        state = true;
+        msg = '';
+        border = '2px solid var(--green, green)';
+    }
+    input.style.backgroundColor = 'rgb(245, 245, 245)';
+
+    if (input.value === '') {
+        msg = '';
+        border = 'none';
+        input.style.backgroundColor = '#d4d4d4';
+    }
+    changeDesign(msg, border, input, error);
+
+    if (!state && input.value.length >= 8) {
+        const green = 'var(--green, green)';
+        const red = 'var(--red-error, red)';
+        console.log('enter here')
+        error.textContent = '';
+        spanCaps.textContent = 'Capital Letter, ';
+        spanNumb.textContent = 'Number, ';
+        spanSpCh.textContent = 'Special Char';
+        error.append(spanCaps, spanNumb, spanSpCh);
+
+        testForCapital ? spanColor(spanCaps, green) : spanColor(spanCaps, red);
+        testForNumber ? spanColor(spanNumb, green) : spanColor(spanNumb, red);
+        testForSpCh ? spanColor(spanSpCh, green) : spanColor(spanSpCh, red);
+    }
+
+    console.log(input.value);
+    statusBtn.password = state;
 }
+
 
 input.forEach(inp => {
     inp.addEventListener('input', () => {
