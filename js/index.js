@@ -129,7 +129,7 @@ const passwordRes = (state, input, error) => {
     if (!state && input.value.length >= 8) {
         const green = 'var(--green, green)';
         const red = 'var(--red-error, red)';
-        console.log('enter here')
+       
         error.textContent = '';
         spanCaps.textContent = 'Capital Letter, ';
         spanNumb.textContent = 'Number, ';

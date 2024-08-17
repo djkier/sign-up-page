@@ -21,6 +21,11 @@ This project is a basic signup form created using HTML, CSS and JavaScript. The 
     
     -   CSS is used to style the form elements for a better user experience.
 
+    **Show Password**
+    
+    -   View the password type if it would match the constraints.
+
+
 ## Technologies Used
 
 -   **HTML:** Used to create the structure of the signup form.
