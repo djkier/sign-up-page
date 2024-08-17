@@ -1,5 +1,6 @@
 # Signup Website
 
+[Live view here](https://djkier.github.io/sign-up-page/)
 ## Overview
 
 This project is a basic signup form created using HTML, CSS and JavaScript. The form is designed to collect user information such as name, email, password, and other relevant details. This project demonstrates the use of HTML forms, including various input types, form validation, and basic styling.
